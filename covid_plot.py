@@ -3,9 +3,9 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 
-confirmed = pd.read_csv("COVID-19/csse_covid_19_data/csse_covid_19_time_series/time_series_19-covid-Confirmed.csv")
+confirmed = pd.read_csv("COVID-19/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_global.csv")
 
-dead = pd.read_csv("COVID-19/csse_covid_19_data/csse_covid_19_time_series/time_series_19-covid-Deaths.csv")
+dead = pd.read_csv("COVID-19/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_deaths_global.csv")
 
 
 def growthComparisonPlot(shift, frame, countries, textlabel):
@@ -68,6 +68,8 @@ def newCasesComparisonPlot(frame, countries, textlabel):
 def growthComparisonPlotByState(shift, frame, country, num_provinces, textlabel):
     confirmed = frame
 
+    frame.head()
+
     fig3, ax3 = plt.subplots()
     
     fig4, ax4 = plt.subplots()
@@ -117,6 +119,6 @@ growthComparisonPlot(10, dead, countries, 'deaths; updated: '+ last_update)
 
 newCasesComparisonPlot(confirmed, countries, 'new confirmed cases; updated:' + last_update)
 
-growthComparisonPlotByState(50, confirmed, 'US', 10, 'confirmed cases; updated:' + last_update)
+growthComparisonPlotByState(50, confirmed, 'China', 10, 'confirmed cases; updated:' + last_update)
 
 plt.show()
